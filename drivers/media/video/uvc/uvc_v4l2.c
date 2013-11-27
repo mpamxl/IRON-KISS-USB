@@ -63,7 +63,6 @@ static int uvc_ioctl_ctrl_map(struct uvc_video_chain *chain,
 				  "supported for UVCIOC_CTRL_MAP_OLD.\n");
 			ret = -EINVAL;
 			goto done;
-		}
 
 		size = xmap->menu_count * sizeof(*map->menu_info);
 		map->menu_info = kmalloc(size, GFP_KERNEL);
@@ -701,7 +700,7 @@ static long uvc_v4l2_do_ioctl(struct file *file, unsigned int cmd, void *arg)
 					break;
 			}
 			pin = iterm->id;
-		} else if (pin < selector->bNrInPins) {
+		} else if (index < selector->bNrInPins) {
 			pin = selector->baSourceID[index];
 			list_for_each_entry(iterm, &chain->entities, chain) {
 				if (!UVC_ENTITY_IS_ITERM(iterm))

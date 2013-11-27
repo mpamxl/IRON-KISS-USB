@@ -511,6 +511,16 @@ static int pcie_aspm_sanity_check(struct pci_dev *pdev)
 		pos = pci_pcie_cap(child);
 		if (!pos)
 			return -EINVAL;
+
+		/*
+		 * If ASPM is disabled then we're not going to change
+		 * the BIOS state. It's safe to continue even if it's a
+		 * pre-1.1 device
+		 */
+
+		if (aspm_disabled)
+			continue;
+
 		/*
 		 * Disable ASPM for pre-1.1 PCIe device, we follow MS to use
 		 * RBER bit to determine if a function is 1.1 version device
@@ -599,6 +609,9 @@ void pcie_aspm_init_link_state(struct pci_dev *pdev)
 
 	/* Setup initial Clock PM state */
 	pcie_clkpm_cap_init(link, blacklist);
+
+	if (aspm_force)
+		return;
 
 	/*
 	 * At this stage drivers haven't had an opportunity to change the
