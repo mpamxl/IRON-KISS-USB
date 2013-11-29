@@ -2153,8 +2153,8 @@ static int __init vid_dec_init(void)
 		ERR("%s: cdev_add failed %d\n", __func__, rc);
 		goto error_vid_dec_cdev_add;
 	}
-	vid_dec_vcd_init();
-	return 0;
+	rc = vid_dec_vcd_init();
+	return rc;
 
 error_vid_dec_cdev_add:
 	device_destroy(vid_dec_class, vid_dec_dev_num);
