@@ -195,7 +195,7 @@ SUBARCH := arm
 SUBARCH := arm
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= $(SUBARCH)
-CROSS_COMPILE	?= arm-eabi-
+CROSS_COMPILE	?= arm-gnueabi-
 CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 
 # Architecture as present in compile.h
@@ -333,7 +333,7 @@ include $(srctree)/scripts/Kbuild.include
 
 AS		= $(CROSS_COMPILE)as
 LD		= $(CROSS_COMPILE)ld
-REAL_CC		= $(CROSS_COMPILE)gcc
+CC		= $(CROSS_COMPILE)gcc
 CPP		= $(CC) -E
 AR		= $(CROSS_COMPILE)ar
 NM		= $(CROSS_COMPILE)nm
@@ -348,18 +348,14 @@ KALLSYMS	= scripts/kallsyms
 PERL		= perl
 CHECK		= sparse
 
-# Use the wrapper for the compiler.  This wrapper scans for new
-# warnings and causes the build to stop upon encountering them.
-CC		= $(srctree)/scripts/gcc-wrapper.py $(REAL_CC)
-
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
-		  -Wbitwise -Wno-return-void $(CF)
-MODFLAGS  = -DMODULE -mtune=cortex-a8 -ftree-vectorize -ffast-math -fsingle-precision-constant -march=armv7-a -mfpu=neon -mvectorize-with-neon-quad -funroll-loops -fsched-spec-load
-CFLAGS_MODULE   = $(MODFLAGS)
-AFLAGS_MODULE   = $(MODFLAGS)
-LDFLAGS_MODULE  =
-CFLAGS_KERNEL  = -mtune=cortex-a8 -ftree-vectorize -ffast-math -fsingle-precision-constant -march=armv7-a -mfpu=neon -mvectorize-with-neon-quad -funroll-loops -fsched-spec-load
-AFLAGS_KERNEL	=
+				  -Wbitwise -Wno-return-void $(CF)
+MODFLAGS	= -march=armv7-a -mtune=cortex-a8 -mfpu=neon
+CFLAGS_MODULE	= $(MODFLAGS)
+AFLAGS_MODULE	= $(MODFLAGS)
+LDFLAGS_MODULE	=
+CFLAGS_KERNEL	= $(MODFLAGS)
+AFLAGS_KERNEL	= $(MODFLAGS)
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
 
 
