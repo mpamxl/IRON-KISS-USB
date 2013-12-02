@@ -636,32 +636,32 @@ config MSM_SMD_PKT
 	  ports via device interface for MSM chipset.
 
 config MSM_ROTATOR_LEGACY
-        tristate "Legacy MSM Offline Image Rotator Driver"
-        depends on MSM_ROTATOR
-        default n if ARCH_MSM8960
-        default n if ARCH_MSM8X60
-        default n if ARCH_MSM7X30
-        help
-          As a temporally workaround, this option provides backward support for
-          gingerbread, honeycomb on non-8960 platform.
+	tristate "Legacy MSM Offline Image Rotator Driver"
+	depends on MSM_ROTATOR
+	default n if ARCH_MSM8960
+	default n if ARCH_MSM8X60
+	default n if ARCH_MSM7X30
+	help
+	  As a temporally workaround, this option provides backward support for
+	  gingerbread, honeycomb on non-8960 platform.
 
 config MSM_ROTATOR
-        tristate "MSM Offline Image Rotator Driver"
-        depends on (ARCH_MSM7X30 || ARCH_MSM8X60 || ARCH_MSM8960) && ANDROID_PMEM
-        default y
-        help
-          This driver provides support for the image rotator HW block in the
-          MSM 7x30 SoC.
+	tristate "MSM Offline Image Rotator Driver"
+	depends on (ARCH_MSM7X30 || ARCH_MSM8X60 || ARCH_MSM8960) && ANDROID_PMEM
+	default y
+	help
+	  This driver provides support for the image rotator HW block in the
+	  MSM 7x30 SoC.
 
 config MSM_ROTATOR_USE_IMEM
-        bool "Enable rotator driver to use iMem"
-        depends on ARCH_MSM7X30 && MSM_ROTATOR
-        default y
-        help
-          This option enables the msm_rotator driver to use the move efficient
-          iMem.  Some MSM platforms may not have iMem available for the rotator
-          block.  Or some systems may want the iMem to be dedicated to a
-          different function.
+	bool "Enable rotator driver to use iMem"
+	depends on ARCH_MSM7X30 && MSM_ROTATOR
+	default y
+	help
+	  This option enables the msm_rotator driver to use the move efficient
+	  iMem.  Some MSM platforms may not have iMem available for the rotator
+	  block.  Or some systems may want the iMem to be dedicated to a
+	  different function.
 
 config MMC_GENERIC_CSDIO
 	tristate "Generic sdio driver"
@@ -685,6 +685,16 @@ config CSDIO_DEVICE_ID
 	help
 	  Enter device id for targeted sdio device, this may be overwritten by
 	  module parameters.
-.
+
+config FRANDOM
+	tristate "Frandom: Fast random number generator support"
+	default y
+	help
+	  Frandom is a Linux kernel random number generator, which is 10-50
+	  times faster than what you get from Linux' built-in /dev/urandom.
+	  And it uses very little (/dev/frandom) or none (/dev/erandom) of
+	  the kernel's entropy pool, so it is very useful for applications
+	  that require a handy source for lots of random data.
+
 endmenu
 
