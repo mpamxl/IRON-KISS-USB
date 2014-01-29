@@ -393,8 +393,12 @@ static ssize_t store_##file_name					\
 	/* hack for cpufreq_ceiling feature \
 	 * TODO: move to nofifier */ \
 	perflock_##file_name(new_policy.object, policy->cpu);   \
+	ret = cpufreq_driver->verify(&new_policy);			\
+	if (ret)							\
+		pr_err("cpufreq: Frequency verification failed\n");	\
+									\
+	policy->user_policy.object = new_policy.object;			\
 	ret = __cpufreq_set_policy(policy, &new_policy);		\
-	policy->user_policy.object = policy->object;			\
 									\
 	return ret ? ret : count;					\
 }
