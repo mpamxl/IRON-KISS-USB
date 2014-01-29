@@ -236,48 +236,42 @@ config MSM_ADM3
 	bool
 
 config PERFLOCK
-        depends on CPU_FREQ
-        depends on ARCH_MSM8960 || ARCH_MSM8X60 || ARCH_QSD8X50 || ARCH_MSM7X30 || ARCH_MSM7X00A || ARCH_MSM7X27A || ARCH_MSM7X25
-        default n
-        bool "HTC Performance Lock"
-
-config HIGH_OC_VALUES
-        depends on CPU_FREQ
-	depends on ARCH_MSM7X30
-        default n
-        bool "Support OC values > 1.5GHz"
+	depends on CPU_FREQ
+	depends on ARCH_MSM8960 || ARCH_MSM8X60 || ARCH_QSD8X50 || ARCH_MSM7X30 || ARCH_MSM7X00A || ARCH_MSM7X27A || ARCH_MSM7X25
+	default n
+	bool "HTC Performance Lock"
 
 config PERFLOCK_BOOT_LOCK
-        depends on PERFLOCK
-        depends on ARCH_MSM8960 || ARCH_MSM8X60 || ARCH_QSD8X50 || ARCH_MSM7X30 || ARCH_MSM7X00A || ARCH_MSM7X27A || ARCH_MSM7X25
-        default n
-        bool "Boot Time Performance Lock"
+	depends on PERFLOCK
+	depends on ARCH_MSM8960 || ARCH_MSM8X60 || ARCH_QSD8X50 || ARCH_MSM7X30 || ARCH_MSM7X00A || ARCH_MSM7X27A || ARCH_MSM7X25
+	default n
+	bool "Boot Time Performance Lock"
 
 config PERFLOCK_SCREEN_POLICY
-        depends on PERFLOCK
-        depends on ARCH_MSM8960 || ARCH_MSM8X60 || ARCH_QSD8X50 || ARCH_MSM7X00A || ARCH_MSM7X27A || ARCH_MSM7X25
-        default n
-        bool "Change Cpufreq Policy while Screen ON/OFF"
+	depends on PERFLOCK
+	depends on ARCH_MSM8960 || ARCH_MSM8X60 || ARCH_QSD8X50 || ARCH_MSM7X00A || ARCH_MSM7X27A || ARCH_MSM7X25
+	default n
+	bool "Change Cpufreq Policy while Screen ON/OFF"
 
 config PERFLOCK_SCREEN_ON_MIN
-        depends on PERFLOCK_SCREEN_POLICY
-        int "Minimum speed while screen on"
-        default MSM_CPU_FREQ_ONDEMAND_MIN
+	depends on PERFLOCK_SCREEN_POLICY
+	int "Minimum speed while screen on"
+	default MSM_CPU_FREQ_ONDEMAND_MIN
 
 config PERFLOCK_SCREEN_ON_MAX
-        depends on PERFLOCK_SCREEN_POLICY
-        int "Maximum speed while screen on"
-        default MSM_CPU_FREQ_ONDEMAND_MAX
+	depends on PERFLOCK_SCREEN_POLICY
+	int "Maximum speed while screen on"
+	default MSM_CPU_FREQ_ONDEMAND_MAX
 
 config PERFLOCK_SCREEN_OFF_MIN
-        depends on PERFLOCK_SCREEN_POLICY
-        int "Minimum speed while screen off"
-        default MSM_CPU_FREQ_ONDEMAND_MIN
+	depends on PERFLOCK_SCREEN_POLICY
+	int "Minimum speed while screen off"
+	default MSM_CPU_FREQ_ONDEMAND_MIN
 
 config PERFLOCK_SCREEN_OFF_MAX
-        depends on PERFLOCK_SCREEN_POLICY
-        int "Maximum speed while screen off"
-        default MSM_CPU_FREQ_ONDEMAND_MIN
+	depends on PERFLOCK_SCREEN_POLICY
+	int "Maximum speed while screen off"
+	default MSM_CPU_FREQ_ONDEMAND_MIN
 
 menu "MSM Board Selection"
 
@@ -328,233 +322,233 @@ config MACH_MSM7X27_FFA
 	  Support for the Qualcomm MSM7x27 FFA eval board.
 
 config MACH_MSM7X27A_RUMI3
-        depends on ARCH_MSM7X27A
-        depends on !MSM_STACKED_MEMORY
-        default n
-        bool "MSM7x27A RUMI3"
-        help
-          Support for the Qualcomm MSM7x27A RUMI3 Emulation Platform.
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "MSM7x27A RUMI3"
+	help
+	  Support for the Qualcomm MSM7x27A RUMI3 Emulation Platform.
 
 config MACH_MSM7X27A_SURF
-        depends on ARCH_MSM7X27A
-        depends on !MSM_STACKED_MEMORY
-        default n
-        bool "MSM7x27A SURF"
-        help
-          Support for the Qualcomm MSM7x27A SURF.
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "MSM7x27A SURF"
+	help
+	  Support for the Qualcomm MSM7x27A SURF.
 
 config MACH_MSM7X27A_FFA
-        depends on ARCH_MSM7X27A
-        depends on !MSM_STACKED_MEMORY
-        default n
-        bool "MSM7x27A FFA"
-        help
-          Support for the Qualcomm MSM7x27A FFA.
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "MSM7x27A FFA"
+	help
+	  Support for the Qualcomm MSM7x27A FFA.
 
 config MACH_PICO
-		depends on ARCH_MSM7X27A
-		depends on !MSM_STACKED_MEMORY
-		default n
-		bool "Pico"
-		help
-			Support for Pico (PDA phone).
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "Pico"
+	help
+	  Support for Pico (PDA phone).
 
 config MACH_GOLFU
-		depends on ARCH_MSM7X27A
-		depends on !MSM_STACKED_MEMORY
-		default n
-		bool "Golfu"
-		help
-			Support for Golfu (PDA phone).
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "Golfu"
+	help
+	  Support for Golfu (PDA phone).
 
 config MACH_PRIMODD
-		depends on ARCH_MSM7X27A
-		depends on !MSM_STACKED_MEMORY
-		default n
-		bool "Primodd_ct"
-		help
-			Support for Primodd_ct (PDA phone).
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "Primodd_ct"
+	help
+	  Support for Primodd_ct (PDA phone).
 
 config MACH_PRIMODS
-		depends on ARCH_MSM7X27A
-		depends on !MSM_STACKED_MEMORY
-		default n
-		bool "Primods"
-		help
-			Support for Primods (PDA phone).
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default n
+	bool "Primods"
+	help
+	  Support for Primods (PDA phone).
 
 config MACH_MSM7625A_SURF
-        depends on ARCH_MSM7X27A
-        depends on !MSM_STACKED_MEMORY
-        default y
-        bool "MSM7625A SURF"
-        help
-          Support for the Qualcomm MSM7625A SURF.
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM7625A SURF"
+	help
+	  Support for the Qualcomm MSM7625A SURF.
 
 config MACH_MSM7625A_FFA
-        depends on ARCH_MSM7X27A
-        depends on !MSM_STACKED_MEMORY
-        default y
-        bool "MSM7625A FFA"
-        help
-          Support for the Qualcomm MSM7625A FFA.
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM7625A FFA"
+	help
+	  Support for the Qualcomm MSM7625A FFA.
 
 config MACH_MSM7627A_QRD1
-        depends on ARCH_MSM7X27A
-        depends on !MSM_STACKED_MEMORY
-        default y
-        bool "MSM7627A QRD1"
-        help
-          Support for the Qualcomm MSM7627A Refrence Design.
+	depends on ARCH_MSM7X27A
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM7627A QRD1"
+	help
+	  Support for the Qualcomm MSM7627A Refrence Design.
 
 config MACH_MSM7X30_SURF
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM7x30 SURF"
-       help
-         Support for the Qualcomm MSM7x30 SURF eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM7x30 SURF"
+	help
+	  Support for the Qualcomm MSM7x30 SURF eval board.
 
 config MACH_MSM7X30_FFA
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM7x30 FFA"
-       help
-         Support for the Qualcomm MSM7x30 FFA eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM7x30 FFA"
+	help
+	  Support for the Qualcomm MSM7x30 FFA eval board.
 
 config MACH_MSM7X30_FLUID
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM7x30 FLUID"
-       help
-         Support for the Qualcomm MSM7x30 FLUID eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM7x30 FLUID"
+	help
+	  Support for the Qualcomm MSM7x30 FLUID eval board.
 
 config ARCH_MSM7X30_SMD
-       bool "Support QCT 7X30 SMD function"
-       default n
-       help
-         For QCT SMD function, we need 7x30 rpcrouter and smd drivers.
+	bool "Support QCT 7X30 SMD function"
+	default n
+	help
+	  For QCT SMD function, we need 7x30 rpcrouter and smd drivers.
 
 config MACH_RUNNYMEDE
-       depends on ARCH_MSM7X30
-       default n
-       bool "Runnymede"
-       help
-         Support for the Qualcomm Runnymede board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Runnymede"
+	help
+	  Support for the Qualcomm Runnymede board.
 
 config MACH_FLYER
-       depends on ARCH_MSM7X30
-       default n
-       bool "Flyer"
-       help
-         Support for the Qualcomm Flyer board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Flyer"
+	help
+	  Support for the Qualcomm Flyer board.
 
 config MACH_VIVO
-       depends on ARCH_MSM7X30
-       default n
-       bool "Vivo"
-       help
-         Support for the Qualcomm Vivo board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Vivo"
+	help
+	  Support for the Qualcomm Vivo board.
 
 config MACH_VIVOW
-       depends on ARCH_MSM7X30
-       default n
-       bool "Vivow"
-       help
-         Support for the Qualcomm Vivow board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Vivow"
+	help
+	  Support for the Qualcomm Vivow board.
 
 config MACH_VIVOW_CT
-       depends on ARCH_MSM7X30
-       default n
-       bool "Vivow_ct"
-       help
-         Support for the Qualcomm Vivow_ct board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Vivow_ct"
+	help
+	  Support for the Qualcomm Vivow_ct board.
 
 config MACH_BLISSC
-       depends on ARCH_MSM7X30
-       default n
-       bool "Blissc"
-       help
-         Support for the Qualcomm Blissc board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Blissc"
+	help
+	  Support for the Qualcomm Blissc board.
 
 config MACH_BLISS
-       depends on ARCH_MSM7X30
-       default n
-       bool "Bliss"
-       help
-         Support for the Qualcomm Bliss board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Bliss"
+	help
+	  Support for the Qualcomm Bliss board.
 
 config MACH_SPADE
-       depends on ARCH_MSM7X30
-       default n
-       bool "Spade"
-       help
-         Support for the Qualcomm Spade board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Spade"
+	help
+	  Support for the Qualcomm Spade board.
 
 config MACH_SAGA
-       depends on ARCH_MSM7X30
-       default n
-       bool "Saga"
-       help
-         Support for the Qualcomm Saga board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Saga"
+	help
+	  Support for the Qualcomm Saga board.
 
 config MACH_MECHA
-       depends on ARCH_MSM7X30
-       default n
-       bool "Mecha"
-       help
-         Support for the Qualcomm Mecha board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Mecha"
+	help
+	  Support for the Qualcomm Mecha board.
 
 config MACH_KINGDOM
-       depends on ARCH_MSM7X30
-       default n
-       bool "Kingdom"
-       help
-         Support for the Qualcomm Kingdom board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Kingdom"
+	help
+	  Support for the Qualcomm Kingdom board.
 
 config MACH_PRIMOU
-       depends on ARCH_MSM7X30
-       default n
-       bool "Primou"
-       select ARCH_SPARSEMEM_ENABLE
-       select MEMORY_HOTPLUG
-       select MEMORY_HOTREMOVE
-       select ARCH_ENABLE_MEMORY_HOTPLUG
-       select ARCH_ENABLE_MEMORY_HOTREMOVE
-       select ARCH_MEMORY_PROBE
-       select ARCH_MEMORY_REMOVE
-       help
-         Support for the Qualcomm Primou board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Primou"
+	select ARCH_SPARSEMEM_ENABLE
+	select MEMORY_HOTPLUG
+	select MEMORY_HOTREMOVE
+	select ARCH_ENABLE_MEMORY_HOTPLUG
+	select ARCH_ENABLE_MEMORY_HOTREMOVE
+	select ARCH_MEMORY_PROBE
+	select ARCH_MEMORY_REMOVE
+	help
+	  Support for the Qualcomm Primou board.
 
 config MACH_PRIMOC
-       depends on ARCH_MSM7X30
-       default n
-       bool "Primoc"
-       select ARCH_SPARSEMEM_ENABLE
-       select MEMORY_HOTPLUG
-       select MEMORY_HOTREMOVE
-       select ARCH_ENABLE_MEMORY_HOTPLUG
-       select ARCH_ENABLE_MEMORY_HOTREMOVE
-       select ARCH_MEMORY_PROBE
-       select ARCH_MEMORY_REMOVE
-       help
-         Support for the Qualcomm Primoc board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Primoc"
+	select ARCH_SPARSEMEM_ENABLE
+	select MEMORY_HOTPLUG
+	select MEMORY_HOTREMOVE
+	select ARCH_ENABLE_MEMORY_HOTPLUG
+	select ARCH_ENABLE_MEMORY_HOTREMOVE
+	select ARCH_MEMORY_PROBE
+	select ARCH_MEMORY_REMOVE
+	help
+	  Support for the Qualcomm Primoc board.
 
 config MACH_PRIMOTD
-       depends on ARCH_MSM7X30
-       default n
-       bool "Primotd"
-       help
-         Support for the Qualcomm Primotd board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "Primotd"
+	help
+	  Support for the Qualcomm Primotd board.
 
 config MACH_VIVOW_EVM
-       depends on ARCH_MSM7X30
-       default n
-       bool "VivoW EVM"
-       help
-         Support for the VivoW EVM (Maxim PMIC) board.
+	depends on ARCH_MSM7X30
+	default n
+	bool "VivoW EVM"
+	help
+	  Support for the VivoW EVM (Maxim PMIC) board.
 
 config MACH_SAPPHIRE
 	depends on ARCH_MSM7X01A
@@ -596,36 +590,36 @@ config MACH_MSM7X25_FFA
 	  Support for the Qualcomm MSM7x25 FFA eval board.
 
 config MACH_MSM8X55_SURF
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM8X55 SURF"
-       help
-         Support for the Qualcomm MSM8x55 SURF eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM8X55 SURF"
+	help
+	  Support for the Qualcomm MSM8x55 SURF eval board.
 
 config MACH_MSM8X55_FFA
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM8X55 FFA"
-       help
-         Support for the Qualcomm MSM8x55 FFA eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM8X55 FFA"
+	help
+	  Support for the Qualcomm MSM8x55 FFA eval board.
 
 config MACH_MSM8X55_SVLTE_FFA
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM8X55 SVLTE FFA"
-       help
-         Support for the Qualcomm MSM8x55 SVLTE FFA eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM8X55 SVLTE FFA"
+	help
+	  Support for the Qualcomm MSM8x55 SVLTE FFA eval board.
 
 config MACH_MSM8X55_SVLTE_SURF
-       depends on ARCH_MSM7X30
-       depends on !MSM_STACKED_MEMORY
-       default y
-       bool "MSM8X55 SVLTE SURF"
-       help
-         Support for the Qualcomm MSM8x55 SVLTE SURF eval board.
+	depends on ARCH_MSM7X30
+	depends on !MSM_STACKED_MEMORY
+	default y
+	bool "MSM8X55 SVLTE SURF"
+	help
+	  Support for the Qualcomm MSM8x55 SVLTE SURF eval board.
 
 config MACH_MSM8X60_RUMI3
 	depends on ARCH_MSM8X60
@@ -701,12 +695,12 @@ config MACH_SHOOTER
 	  Support for the Shooter device.
 
 config MACH_SHOOTER_U
-        depends on ARCH_MSM8X60
-        default n
-        bool "Shooter_U"
-        select SMP_PARALLEL_START
-        help
-          Support for the Shooter_U device.
+	depends on ARCH_MSM8X60
+	default n
+	bool "Shooter_U"
+	select SMP_PARALLEL_START
+	help
+	  Support for the Shooter_U device.
 
 config MACH_SHOOTER_K
 	depends on ARCH_MSM8X60
@@ -716,19 +710,19 @@ config MACH_SHOOTER_K
 	  Support for the Shooter_K device.
 
 config MACH_SHOOTER_CT
-        depends on ARCH_MSM8X60
-        default n
-        bool "shooter_ct"
-        help
-          Support for the Shooter_CT device.
+	depends on ARCH_MSM8X60
+	default n
+	bool "shooter_ct"
+	help
+	  Support for the Shooter_CT device.
 
 config MACH_RIDER
-        depends on ARCH_MSM8X60
-        default n
-        bool "RIDER"
-        select SMP_PARALLEL_START
-        help
-          Support for the RIDER device.
+	depends on ARCH_MSM8X60
+	default n
+	bool "RIDER"
+	select SMP_PARALLEL_START
+	help
+	  Support for the RIDER device.
 
 config MACH_VERDI_LTE
 	depends on ARCH_MSM8X60
@@ -837,10 +831,10 @@ config MACH_FSM9XXX_SURF
 	  FFA board.
 
 config MACH_VILLE
-        depends on ARCH_MSM8960
-        bool "Ville"
-        help
-          Support for the HTC Ville.
+	depends on ARCH_MSM8960
+	bool "Ville"
+	help
+	  Support for the HTC Ville.
 
 config MACH_TAHITI
 	depends on ARCH_MSM8960
@@ -917,14 +911,14 @@ config KERNEL_PMEM_EBI_REGION
 	default y if ARCH_MSM8X60
 	depends on ANDROID_PMEM && (ARCH_MSM8X60 || ARCH_MSM8960)
 	help
-	   Enable the in-kernel PMEM allocator to use EBI memory.
+	  Enable the in-kernel PMEM allocator to use EBI memory.
 
 config KERNEL_PMEM_SMI_REGION
 	bool "Enable in-kernel PMEM region for SMI"
 	default y if ARCH_MSM8X60
 	depends on ANDROID_PMEM && ((ARCH_QSD8X50 && !PMEM_GPU0) || (ARCH_MSM8X60 && !VCM))
 	help
-	   Enable the in-kernel PMEM allocator to use SMI memory.
+	  Enable the in-kernel PMEM allocator to use SMI memory.
 
 config PMEM_GPU0
 	bool "Enable PMEM GPU0 region"
@@ -1170,15 +1164,15 @@ endif # MSM_IDLE_STATS
 config CPU_HAS_L2_PMU
 	bool "L2CC PMU Support"
 	help
-	 Select this if the L2 cache controller has a Performance Monitoring Unit.
+	  Select this if the L2 cache controller has a Performance Monitoring Unit.
 
 config HTC_HEADSET
 	tristate "HTC 2 Wire detection driver"
 	default n
 	help
-	 Provides support for detecting HTC 2 wire devices, such as wired
-	 headset, on the trout platform. Can be used with the msm serial
-	 debugger, but not with serial console.
+	  Provides support for detecting HTC 2 wire devices, such as wired
+	  headset, on the trout platform. Can be used with the msm serial
+	  debugger, but not with serial console.
 
 config TROUT_BATTCHG
 	depends on MACH_TROUT && POWER_SUPPLY
@@ -1186,9 +1180,9 @@ config TROUT_BATTCHG
 	bool "Trout battery / charger driver"
 
 config HTC_BATTCHG
-        depends on MSM_ONCRPCROUTER && POWER_SUPPLY
-        default n
-        bool "HTC battery / charger driver"
+	depends on MSM_ONCRPCROUTER && POWER_SUPPLY
+	default n
+	bool "HTC battery / charger driver"
 
 config HTC_BATTCHG_MAX8957
 	depends on MSM_ONCRPCROUTER && POWER_SUPPLY
@@ -1196,9 +1190,9 @@ config HTC_BATTCHG_MAX8957
 	bool "HTC battery / charger driver for PMIC MAX8957"
 
 config HTC_BATTCHG_SMEM
-        depends on (HTC_BATTCHG || HTC_BATTCHG_MAX8957)
-        default n
-        bool "Read Battery Info via SMEM"
+	depends on (HTC_BATTCHG || HTC_BATTCHG_MAX8957)
+	default n
+	bool "Read Battery Info via SMEM"
 
 config HTC_PWRSINK
 	depends on MSM_SMD
@@ -1547,11 +1541,11 @@ config MSM_RMT_STORAGE_CLIENT_STATS
 	  through a debugfs file rmt_storage_stats.
 
 config MSM_SDIO_SMEM
-        depends on MSM_SDIO_AL
-        default n
-        bool "SDIO SMEM for remote storage"
-        help
-          Copies data from remote MDM9K memory to local MSM8x60
+	depends on MSM_SDIO_AL
+	default n
+	bool "SDIO SMEM for remote storage"
+	help
+	  Copies data from remote MDM9K memory to local MSM8x60
 	  memory. Used by remote storage client to shadow
 	  MDM9K filesystem.
 
@@ -1591,12 +1585,12 @@ config MSM_CPU_FREQ_MIN
 endif # CPU_FREQ_MSM
 
 config MSM_CPU_FREQ_ONDEMAND_MAX
-        int "Max"
-        default 384000
+	int "Max"
+	default 384000
 
 config MSM_CPU_FREQ_ONDEMAND_MIN
-        int "Min"
-        default 245760
+	int "Min"
+	default 245760
 
 config MSM_CPU_AVS
 	bool "Enable software controlled Adaptive Voltage Scaling (AVS)"
@@ -1640,7 +1634,7 @@ config ADSP_RPC_VER
 	default 0x30001 if (ARCH_MSM7X01A || (ARCH_MSM7X25 && AMSS_7X25_VERSION_2008))
 	depends on MSM_ADSP
 	help
-	 Select proper ADSP RPC version
+	  Select proper ADSP RPC version
 choice
 	prompt "ADSP RPC version"
 
@@ -1787,13 +1781,13 @@ config HTC_OFFMODE_ALARM
 	bool "Enables HTC offmode alarm."
 	default n
 	help
-		support HTC offmode alarm.
+	  support HTC offmode alarm.
 
 config HTC_QUICKBOOT_OFFMODE_ALARM
-        bool "Support HTC quickboot offmode alarm."
-        default n
-        help
-                support HTC quickboot offmode alarm.
+	bool "Support HTC quickboot offmode alarm."
+	default n
+	help
+	  support HTC quickboot offmode alarm.
 
 config MSM_MEMORY_LOW_POWER_MODE
 	bool "Control the low power modes of memory"
@@ -1922,21 +1916,21 @@ config HTC_ONMODE_CHARGING
 	bool "On Mode Charging Icon Support"
 	default n
 	help
-		support on mode charing icon
+	  support on mode charing icon
 
 config SMD_OFFSET_TCXO_STAT
 	depends on MSM_SMD
 	hex "SMD offset of total TCXO-off time"
 	default 0x0
 	help
-          TCXO off time is in tick of sleep clock, 1/32768.
+	  TCXO off time is in tick of sleep clock, 1/32768.
 
 config SMD_OFFSET_NEGATE_CLIENT_STAT
-        depends on MSM_SMD
+	depends on MSM_SMD
 	hex "SMD offset of negate clinet stat"
-        default 0x0
-        help
-          TCXO shutdown retry conuter and negate tcxoc client counters.
+	default 0x0
+	help
+	  TCXO shutdown retry conuter and negate tcxoc client counters.
 
 config MSM_PIL
 	bool "Peripheral image loading"
@@ -1974,25 +1968,25 @@ config MSM_MODEM_8960
 	bool "MSM 8960 Modem driver"
 	depends on (ARCH_MSM8960 || ARCH_MSM9615)
 	help
-	 This option enables the modem driver for the MSM8960 and MSM9615, which monitors
-	 modem hardware watchdog interrupt lines and plugs into the subsystem
-	 restart and PIL drivers. For MSM9615, it only supports a full chip reset.
+	  This option enables the modem driver for the MSM8960 and MSM9615, which monitors
+	  modem hardware watchdog interrupt lines and plugs into the subsystem
+	  restart and PIL drivers. For MSM9615, it only supports a full chip reset.
 
 config MSM_LPASS_8960
 	tristate "MSM 8960 Lpass driver"
 	depends on (ARCH_MSM8960 || ARCH_MSM9615)
 	help
-	 This option enables the lpass driver for the MSM8960 and MSM9615. This monitors
-	 lpass hardware watchdog interrupt lines and plugs into the subsystem
-	 restart and PIL drivers. For MSM9615, it only supports a full chip reset.
+	  This option enables the lpass driver for the MSM8960 and MSM9615. This monitors
+	  lpass hardware watchdog interrupt lines and plugs into the subsystem
+	  restart and PIL drivers. For MSM9615, it only supports a full chip reset.
 
 config MSM_WCNSS_SSR_8960
 	tristate "MSM 8960 WCNSS restart module"
 	depends on (ARCH_MSM8960)
 	help
-	 This option enables the WCNSS restart module for MSM8960, which
-	 monitors WCNSS hardware watchdog interrupt lines and plugs WCNSS
-	 into the subsystem restart framework.
+	  This option enables the WCNSS restart module for MSM8960, which
+	  monitors WCNSS hardware watchdog interrupt lines and plugs WCNSS
+	  into the subsystem restart framework.
 
 config SCORPION_Uni_45nm_BUG
 	bool "Scorpion Uni 45nm(SC45U): Workaround for ICIMVAU and BPIMVA"
@@ -2058,23 +2052,23 @@ config IOMMU_PGTABLES_L2
 	depends on SMP
 	default y
 	help
-	 Improves TLB miss latency at the expense of potential L2 pollution.
-	 However, with large multimedia buffers, the TLB should mostly contain
-	 section mappings and TLB misses should be quite infrequent.
-	 Most people can probably say Y here.
+	  Improves TLB miss latency at the expense of potential L2 pollution.
+	  However, with large multimedia buffers, the TLB should mostly contain
+	  section mappings and TLB misses should be quite infrequent.
+	  Most people can probably say Y here.
 
 config MSM_DIRECT_SCLK_ACCESS
 	bool "Direct access to the SCLK timer"
 	default n
 
 config IOMMU_API
-       bool
+	bool
 
 config MSM_GPIOMUX
 	bool
 
 config MSM_V2_TLMM
-       bool
+	bool
 
 config FSM9XXX_TLMM
 	bool
@@ -2097,25 +2091,25 @@ config MSM_WATCHDOG
 	bool "MSM Watchdog Support"
 	depends on ARCH_MSM8X60 || ARCH_MSM8960 || ARCH_MSM9615
 	help
-		This enables the watchdog as is present on 8x60. Currently we use
-		core 0's watchdog, and reset the entire SoC if it times out. It does
-		not run during the bootup process, so it will not catch any early
-		lockups.
+	  This enables the watchdog as is present on 8x60. Currently we use
+	  core 0's watchdog, and reset the entire SoC if it times out. It does
+	  not run during the bootup process, so it will not catch any early
+	  lockups.
 
 config MSM_DLOAD_MODE
 	bool "Enable download mode on crashes"
 	depends on ARCH_MSM8X60 || ARCH_MSM8960 || ARCH_MSM9615
 	default n
 	help
-		This makes the SoC enter download mode when it resets
-		due to a kernel panic. Note that this doesn't by itself
-		make the kernel reboot on a kernel panic - that must be
-		enabled via another mechanism.
+	  This makes the SoC enter download mode when it resets
+	  due to a kernel panic. Note that this doesn't by itself
+	  make the kernel reboot on a kernel panic - that must be
+	  enabled via another mechanism.
 
 config HAS_QDSS
 	bool "QDSS Present"
 	help
-	 Select this if the chip has Qualcomm Debug Subsystem implemented.
+	  Select this if the chip has Qualcomm Debug Subsystem implemented.
 
 config MSM_DEBUG_ACROSS_PC
 	bool "Debug support across power collapse"
@@ -2128,7 +2122,7 @@ config MSM_JTAG_V7
 	bool "JTAG debug support"
 	select MSM_DEBUG_ACROSS_PC
 	help
-          Add additional support for JTAG kernel debugging.
+	  Add additional support for JTAG kernel debugging.
 
 config MSM_TRACE_ACROSS_PC
 	bool "Trace support across power collapse"
@@ -2156,8 +2150,8 @@ config MSM_SLEEP_STATS
 	default n
 
 config MSM_STANDALONE_POWER_COLLAPSE
-       bool "Enable standalone power collapse"
-       default n
+	bool "Enable standalone power collapse"
+	default n
 
 config MSM_GSBI9_UART
 	bool "Enable GSBI9 UART device"
@@ -2179,9 +2173,9 @@ config MSM_SHOW_RESUME_IRQ
 	depends on (ARCH_MSM7X30 || ARCH_MSM8X60 || ARCH_MSM8960 || ARCH_MSMCOPPER)
 	default n
 	help
-		This option logs wake up interrupts that have triggered just before
-		the resume loop unrolls. Say Y if you want to debug why the system
-		resumed.
+	  This option logs wake up interrupts that have triggered just before
+	  the resume loop unrolls. Say Y if you want to debug why the system
+	  resumed.
 
 config BT_MSM_PINTEST
 	tristate "MSM Bluetooth Pin Connectivity Test"
@@ -2196,14 +2190,14 @@ config SUPPORT_DQ_BATTERY
 	bool "Support DQ battery."
 	default n
 	help
-		support DQ battery.
+	  support DQ battery.
 
 config MSM_FAKE_BATTERY
-		depends on POWER_SUPPLY
-		default n
-		bool "MSM Fake Battery"
-		help
-		 Enables MSM fake battery driver.
+	depends on POWER_SUPPLY
+	default n
+	bool "MSM Fake Battery"
+	help
+	  Enables MSM fake battery driver.
 
 config MSM_QDSP6_APR
 	bool "Audio QDSP6 APR support"
@@ -2217,12 +2211,12 @@ config MSM_QDSP6_APR
 
 
 config MSM_AUDIO_QDSP6
-        bool "QDSP6 HW Audio support"
-        select SND_SOC_MSM_QDSP6_INTF
-        default n
-        help
-          Enable HW audio support in QDSP6.
-          QDSP6 can support HW encoder & decoder and audio processing
+	bool "QDSP6 HW Audio support"
+	select SND_SOC_MSM_QDSP6_INTF
+	default n
+	help
+	  Enable HW audio support in QDSP6.
+	  QDSP6 can support HW encoder & decoder and audio processing
 
 config MSM_RPC_VIBRATOR
 	bool "RPC based MSM Vibrator Support"
@@ -2234,10 +2228,10 @@ config MSM_RPC_VIBRATOR
 config RPC_VER_60001
 	bool "rpc ver 60001"
 	depends on MSM_ONCRPCROUTER
-        help
-          Enable the vibrator support on MSM over RPC. The vibrator
-          is connected on the PMIC. Say Y if you want to enable this
-          feature.
+	help
+	  Enable the vibrator support on MSM over RPC. The vibrator
+	  is connected on the PMIC. Say Y if you want to enable this
+	  feature.
 
 config PM8XXX_RPC_VIBRATOR
 	bool "RPC based Vibrator on PM8xxx PMICs"
@@ -2291,29 +2285,29 @@ config FOOTPRINT_IRQ
 	depends on ARCH_MSM8X60
 	default n
 	help
-	   Record the information that which irq CPU is handling
+	  Record the information that which irq CPU is handling
 
 comment "TI WLAN driver"
 config WIFI_CONTROL_FUNC
-        bool "Enable WiFi control function abstraction"
-        select WIRELESS_EXT
-        select WEXT_CORE
-        select WEXT_PROC
-        select WEXT_PRIV
-        default Y
-        help
-           Enables Power/Reset/Carddetect function abstraction
+	bool "Enable WiFi control function abstraction"
+	select WIRELESS_EXT
+	select WEXT_CORE
+	select WEXT_PROC
+	select WEXT_PRIV
+	default Y
+	help
+	  Enables Power/Reset/Carddetect function abstraction
 
 config TIWLAN_SDIO
-        bool "TI WLAN Enhanced SDIO Contoller support"
-        help
-           Say Y here if you want to be able to use TI's WLAN device using the
-           SDIO interface. If unsure, say N.
+	bool "TI WLAN Enhanced SDIO Contoller support"
+	help
+	  Say Y here if you want to be able to use TI's WLAN device using the
+	  SDIO interface. If unsure, say N.
 
 config WIFI_NVS_PROC_CREATE
-       bool "Store nvs data into /proc/calibration"
-       help
-         store nvs data into /proc/calibration
+	bool "Store nvs data into /proc/calibration"
+	help
+	  store nvs data into /proc/calibration
 
 config HTC_BATT_ALARM
 	bool "Enable 3.0V device shutdown mechanism"
@@ -2326,11 +2320,11 @@ config REMOVE_EBI1_FIXED_CLK
 	bool "remove ebi1 fixed clk"
 	default n
 	help
-		use for 2x Radio
+	  use for 2x Radio
 
 config HTC_ACCESSORY_ONEWIRE
-        tristate "HTC accessory one wire protocol driver"
-        default n
-        help
-          Provides support of HTC one wire protocol driver.
+	tristate "HTC accessory one wire protocol driver"
+	default n
+	help
+	  Provides support of HTC one wire protocol driver.
 endif
